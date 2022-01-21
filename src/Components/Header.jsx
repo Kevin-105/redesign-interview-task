@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-import {Divider, InputAdornment, Tab, Tabs, TextField } from "@mui/material"
+import { Tab, Tabs } from "@mui/material"
+import { useNavigate } from "react-router-dom"
 
 const Header = props => {
 
-    const [defaultValue, setDefaultValue] = useState('top');
+    const [defaultValue, setDefaultValue] = useState('topstories');
+    const navigate = useNavigate();
 
     const handleTabChange = (e, tab) => {
-        setDefaultValue(tab)
+        navigate(`news/${tab}`)
+        setDefaultValue(tab || 'topstories')
     }
 
     const TABS = [
-        {value: 'top', label: 'Top'}, 
-        {value: 'news', label: 'News'}, 
-        {value: 'best', label: 'Best'}, 
-        {value: 'ask', label: 'Ask'},
-        {value: 'jobs', label: 'Jobs'}]
+        { value: "topstories", label: 'Top' },
+        { value: "newstories", label: 'New' },
+        { value: "beststories", label: 'Best' },
+        { value: "askstories", label: 'Ask' },
+        { value: "jobstories", label: 'Jobs' }
+    ];
     return (
         <React.Fragment>
             <Tabs value={defaultValue} onChange={handleTabChange}>

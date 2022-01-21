@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<News/>} />
-          <Route exact path='/news/:filter' element={<News/>} />
+          <Route path='news/:filter' element={<News/>} />
           <Route path='*' element={<NotFound/>} />    
         </Routes>
       </Router>
