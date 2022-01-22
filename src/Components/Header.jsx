@@ -21,11 +21,17 @@ const Header = props => {
     ];
     return (
         <React.Fragment>
-            <Tabs value={defaultValue} onChange={handleTabChange}>
-                {TABS.map((tab) => (
-                    <Tab key={tab.value} value={tab.value} label={tab.label} />
-                ))}
-            </Tabs>
+            <div className="d_flex c-between logo sticky ">
+                <h1 className="d_flex m-0 w-100 cp-n"><span className="logo-border">Y</span> <span className="heading-title">Hacker News</span></h1>
+                <span className="p-r-10 cp" onClick={() => navigate(`/login`)}>Login</span>
+            </div>
+            <div className="d_flex h-top">
+                <Tabs value={defaultValue} onChange={handleTabChange}>
+                    {TABS.map((tab) => (
+                        <Tab key={tab.value} value={tab.value} label={tab.label} />
+                    ))}
+                </Tabs>
+            </div>
         </React.Fragment>
     );
 };
