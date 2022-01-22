@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { API_URL, SITE_URL } from "../Common/Constants";
 import Loader from '../Common/Loader';
 import axios from 'axios';
-import News_Detail from '../Components/News_Detail';
+import NewsDetail from '../Components/News_Detail';
 
 const News = () => {
 
@@ -82,7 +82,7 @@ const News = () => {
         <React.Fragment>
             {isLoading ? <Loader /> :
                 <>
-                    <News_Detail NewsList={newsList} />
+                    <NewsDetail NewsList={newsList} />
                     <span className="btn-more">
                         <Button onClick={() => showMore()} variant="outlined">More</Button>
                     </span>

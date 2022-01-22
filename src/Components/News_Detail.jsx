@@ -33,7 +33,7 @@ const News_Detail = ({NewsList}) => {
                                         <Link underline="none" href={url} target="_blank" rel="noopener noreferrer">
                                             {title}
                                         </Link>
-                                        <Link className="cp p-l-5">
+                                        <Link href={url} target="_blank" className="cp p-l-5">
                                             ( {Create_URL(url)} )
                                         </Link>
                                     </span>  
