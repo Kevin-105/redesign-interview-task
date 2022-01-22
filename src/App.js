@@ -9,6 +9,11 @@ import NotFound from './Pages/NotFound';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 
+/**
+ * Make routing here instead of creating new File.
+ * I didn't create Register page because i don't have its API so, i just leave it. 
+ */
+
 function App() {
   return (
     <div className="App">

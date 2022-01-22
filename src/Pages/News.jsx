@@ -6,6 +6,10 @@ import Loader from '../Common/Loader';
 import axios from 'axios';
 import NewsDetail from '../Components/News_Detail';
 
+/**
+ *This is main page, with all resources
+ */
+
 const News = () => {
 
     const { filter } = useParams();
@@ -14,6 +18,7 @@ const News = () => {
     const [count, setCount] = useState(25);
     const [showError, setShowError] = useState(false);
 
+    // This Effect called when user change category from header, 
     useEffect(() => {
         setIsLoading(true);
         getNewsId(filter || 'topstories', 0, 25).then(list => {
@@ -25,6 +30,7 @@ const News = () => {
         });
     }, [filter])
 
+    // For Display next bunch of record, I called it on more click with new counter
     const showMore = () => {
         setIsLoading(true);
         getNewsId(filter || 'topstories', count, count + 25).then(arr => {
@@ -38,11 +44,13 @@ const News = () => {
         });
     };
 
+    // Just group all data together
     const formatNewsData = (item, next) => {
         setNewsList(item);
         next();
     };
 
+    // For get News list with only Ids
     const getNewsId = async function (category, start, end) {
         const Emty_Array = [];
         try {
@@ -56,6 +64,7 @@ const News = () => {
         return Emty_Array;
     }
 
+    // For get Details from News Id
     const getNewsDetail = async function (list) {
         const newsList = list?.map(async news => {
             const { data } = await axios.get(

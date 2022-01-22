@@ -7,11 +7,13 @@ const Header = props => {
     const [defaultValue, setDefaultValue] = useState('topstories');
     const navigate = useNavigate();
 
+    // Called when user change Tab
     const handleTabChange = (e, tab) => {
         navigate(`news/${tab}`)
         setDefaultValue(tab || 'topstories')
     }
 
+    // List of default tabs that Display 
     const TABS = [
         { value: "topstories", label: 'Top' },
         { value: "newstories", label: 'New' },
